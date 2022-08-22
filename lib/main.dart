@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:mybranz/screens/home_screen/home_screen.dart';
+import 'package:mybranz/screens/home_screen/home_screen_widget.dart';
 
 void main() {
   runApp(const MyApp());
@@ -15,7 +17,8 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home:
+      debugShowCheckedModeBanner: false,
+      home: Home_screen(),
     );
   }
 }
