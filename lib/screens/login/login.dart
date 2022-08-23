@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mybranz/screens/profile_screen/profile_screen.dart';
 
-
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
 
@@ -19,7 +18,9 @@ class _LoginScreenState extends State<LoginScreen> {
       body: Container(
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage("assets/images/loginbg.png"),
+            image: NetworkImage(
+                "https://www.thisiscolossal.com/wp-content/uploads/2018/04/agif1opt.gif"),
+            // image: AssetImage("assets/images/loginbg.png"),
             fit: BoxFit.cover,
           ),
         ),

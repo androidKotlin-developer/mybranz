@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:mybranz/screens/Interests/interests.dart';
 import 'package:mybranz/screens/login/login.dart';
+import 'package:flutter/services.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
   runApp(const MyApp());
 }
 
