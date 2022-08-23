@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mybranz/screens/home_screen/home_screen.dart';
-import 'package:mybranz/screens/home_screen/home_screen_widget.dart';
+import 'package:mybranz/screens/login/login.dart';
 
 void main() {
   runApp(const MyApp());
@@ -18,7 +17,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       debugShowCheckedModeBanner: false,
-      home: Home_screen(),
+      home: LoginScreen(),
     );
   }
 }
