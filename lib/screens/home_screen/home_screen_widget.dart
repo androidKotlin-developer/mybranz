@@ -42,6 +42,7 @@ class HomeScreen_widget extends StatefulWidget {
 class _HomeScreen_widgetState extends State<HomeScreen_widget> {
   bool _isliked = false;
 
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(child: Container(
@@ -51,8 +52,11 @@ class _HomeScreen_widgetState extends State<HomeScreen_widget> {
           image: DecorationImage(
               image: AssetImage('assets/bg1.png'), fit: BoxFit.cover)),
       child: Column(
+        mainAxisAlignment: MainAxisAlignment.end,
         children: [
-          Padding(
+          Expanded(child:  Container(
+            alignment: Alignment.topCenter,
+            child: Padding(
             padding: EdgeInsets.all(10),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -103,7 +107,8 @@ class _HomeScreen_widgetState extends State<HomeScreen_widget> {
                 ),
               ],
             ),
-          ),
+          ),),),
+
           Padding(
             padding: EdgeInsets.only(left: 35, bottom: 20, top: 10, right: 35),
             child: Column(
@@ -137,8 +142,8 @@ class _HomeScreen_widgetState extends State<HomeScreen_widget> {
               ],
             ),
           ),
-          Expanded(
-            child: Align(
+
+           Align(
               alignment: FractionalOffset.bottomCenter,
               child: Padding(
                 padding:
@@ -150,7 +155,11 @@ class _HomeScreen_widgetState extends State<HomeScreen_widget> {
                       child: Image.asset('assets/brand.png'),
                     ),
                     InkWell(
-                      onTap: () {},
+                      onTap: () {
+                          setState(() {
+                            _isliked = !_isliked;
+                          });
+                      },
                       onLongPress: () => showModalBottomSheet(
                         backgroundColor: Color(0xFF1F1F1F),
                         context: context,
@@ -268,10 +277,10 @@ class _HomeScreen_widgetState extends State<HomeScreen_widget> {
                           );
                         },
                       ),
-                      child: Image.asset('assets/like.png'),
+                      child: _isliked ? Image.asset('assets/liked.png') : Image.asset('assets/like.png'),
                     ),
                     InkWell(
-                      onLongPress: () => showModalBottomSheet(
+                      onTap: () => showModalBottomSheet(
                         backgroundColor: Color(0xFF1F1F1F),
                         context: context,
                         builder: (BuildContext context) {
@@ -442,7 +451,6 @@ class _HomeScreen_widgetState extends State<HomeScreen_widget> {
                 ),
               ),
             ),
-          )
         ],
       ),
     ),);

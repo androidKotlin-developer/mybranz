@@ -29,7 +29,7 @@ class _Open_CameraState extends State<Open_Camera> {
   _initCamera() async {
     final cameras = await availableCameras();
     final front = cameras.firstWhere(
-        (camera) => camera.lensDirection == CameraLensDirection.front);
+        (camera) => camera.lensDirection == CameraLensDirection.back);
     _cameraController = CameraController(front, ResolutionPreset.max);
     await _cameraController.initialize();
     setState(() {

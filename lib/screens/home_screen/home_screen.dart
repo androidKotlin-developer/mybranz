@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mybranz/screens/chat/chat_page.dart';
 import 'package:mybranz/screens/home_screen/home_screen_widget.dart';
+import 'package:mybranz/screens/user_profile/user_profile.dart';
 
 class Home_screen extends StatefulWidget {
   const Home_screen({Key? key}) : super(key: key);
@@ -31,7 +32,7 @@ class _Home_screenState extends State<Home_screen> {
         return const HomeScreen_widget();
 
       default:
-        return const All_Chat();
+        return const User_Profile();
     }
   }
 
@@ -45,19 +46,19 @@ class _Home_screenState extends State<Home_screen> {
         unselectedItemColor: Colors.red,
         items:  [
           BottomNavigationBarItem(
-            icon:  Image.asset("assets/home.png" ,),
+            icon: _page == 0 ?  Image.asset("assets/selectedhome.png" ,)  : Image.asset("assets/home.png" ,),
             label: '',
           ),
           BottomNavigationBarItem(
-            icon: Image.asset("assets/chat1.png",),
+            icon: _page == 1 ? Image.asset("assets/selectedchat.png",) : Image.asset("assets/chat1.png",),
             label: '',
           ),
           BottomNavigationBarItem(
-            icon: Image.asset("assets/notification.png",),
+            icon: _page ==2 ?Image.asset("assets/selectednotification.png",):Image.asset("assets/notification.png",),
             label: '',
           ),
           BottomNavigationBarItem(
-            icon: Image.asset("assets/user.png",),
+            icon: _page == 3 ?Image.asset("assets/selecteduser.png",):Image.asset("assets/user.png",),
             label: '',
           ),
         ],
@@ -76,7 +77,7 @@ class _Home_screenState extends State<Home_screen> {
           });
         },
         controller: _controller,
-        children: const [HomeScreen_widget(), All_Chat(), HomeScreen_widget(), All_Chat()],
+        children: const [HomeScreen_widget(), All_Chat(), HomeScreen_widget(), User_Profile()],
       ),
     );
   }
