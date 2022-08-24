@@ -52,6 +52,8 @@ class All_Chat extends StatefulWidget {
 
 class _All_ChatState extends State<All_Chat> {
 
+  List profiles = name;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -108,17 +110,23 @@ class _All_ChatState extends State<All_Chat> {
                 ),
               ),
               Expanded(
-                  flex: 90,
-                  child: GestureDetector(
-                    onTap: (){
-                      Navigator.push(context, MaterialPageRoute(builder: (context) => Chat_Page(name: 'Jay',)));
-                    },
-                    child: ListView.builder(
-                        itemCount: profile.length,
-                        itemBuilder: (context, index) {
-                          return Padding(
+                flex: 90,
+                child: ListView.builder(
+                    itemCount: profile.length,
+                    itemBuilder: (context, index) {
+                      return GestureDetector(
+                          onTap: () {
+                            Navigator
+                                .push(context, MaterialPageRoute(builder: (context)
+                            =>
+                                Chat_Page(profilename: name[index],
+                                    picture: profile[index])
+                            ),);
+                          },
+                          child: Padding(
                             padding:
-                                EdgeInsets.only(left: 20, right: 20, top: 10 ,bottom: 10),
+                            EdgeInsets.only(
+                                left: 20, right: 20, top: 10, bottom: 10),
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
@@ -129,8 +137,7 @@ class _All_ChatState extends State<All_Chat> {
                                       width: 15,
                                     ),
                                     Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
+                                      crossAxisAlignment: CrossAxisAlignment.start,
                                       children: [
                                         Text(
                                           name[index],
@@ -142,7 +149,7 @@ class _All_ChatState extends State<All_Chat> {
                                         Text(
                                           subtext[index],
                                           style: GoogleFonts.roboto(
-                                              fontWeight: FontWeight.w500,
+                                              fontWeight: FontWeight.w300,
                                               fontSize: 13,
                                               color: Colors.white),
                                         )
@@ -159,9 +166,9 @@ class _All_ChatState extends State<All_Chat> {
                                 )
                               ],
                             ),
-                          );
-                        }),
-                  ))
+                          ));
+                    }),
+              )
             ],
           ),
         ),
