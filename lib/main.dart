@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+
 import 'package:mybranz/screens/Interests/interests.dart';
+
+import 'package:mybranz/screens/home_screen/home_screen.dart';
+
 import 'package:mybranz/screens/login/login.dart';
 import 'package:flutter/services.dart';
 
@@ -21,7 +25,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       debugShowCheckedModeBanner: false,
-      home: LoginScreen(),
+      home: Home_screen(),
     );
   }
 }

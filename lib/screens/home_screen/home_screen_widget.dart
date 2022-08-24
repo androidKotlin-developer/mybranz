@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:mybranz/screens/teamUp/team_up.dart';
+import 'package:share_plus/share_plus.dart';
 
 List<String> name = [
   'Manya Sharma',
@@ -30,19 +32,19 @@ List<String> time = [
 
 List<String> commentname = ['Jane Doe', 'Jane Doe'];
 
-class HoemScreen_widget extends StatefulWidget {
-  const HoemScreen_widget({Key? key}) : super(key: key);
+class HomeScreen_widget extends StatefulWidget {
+  const HomeScreen_widget({Key? key}) : super(key: key);
 
   @override
-  State<HoemScreen_widget> createState() => _HoemScreen_widgetState();
+  State<HomeScreen_widget> createState() => _HomeScreen_widgetState();
 }
 
-class _HoemScreen_widgetState extends State<HoemScreen_widget> {
+class _HomeScreen_widgetState extends State<HomeScreen_widget> {
   bool _isliked = false;
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SafeArea(child: Container(
       height: MediaQuery.of(context).size.height,
       width: MediaQuery.of(context).size.width,
       decoration: BoxDecoration(
@@ -140,7 +142,7 @@ class _HoemScreen_widgetState extends State<HoemScreen_widget> {
               alignment: FractionalOffset.bottomCenter,
               child: Padding(
                 padding:
-                    EdgeInsets.only(left: 35, bottom: 20, top: 10, right: 35),
+                EdgeInsets.only(left: 35, bottom: 20, top: 10, right: 35),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -159,7 +161,7 @@ class _HoemScreen_widgetState extends State<HoemScreen_widget> {
                                 flex: 10,
                                 child: Row(
                                   mainAxisAlignment:
-                                      MainAxisAlignment.spaceEvenly,
+                                  MainAxisAlignment.spaceEvenly,
                                   children: [
                                     Text(
                                       'Likes',
@@ -190,8 +192,8 @@ class _HoemScreen_widgetState extends State<HoemScreen_widget> {
                                             children: [
                                               Row(
                                                 mainAxisAlignment:
-                                                    MainAxisAlignment
-                                                        .spaceBetween,
+                                                MainAxisAlignment
+                                                    .spaceBetween,
                                                 children: [
                                                   Row(
                                                     children: [
@@ -202,8 +204,8 @@ class _HoemScreen_widgetState extends State<HoemScreen_widget> {
                                                       ),
                                                       Column(
                                                         crossAxisAlignment:
-                                                            CrossAxisAlignment
-                                                                .start,
+                                                        CrossAxisAlignment
+                                                            .start,
                                                         children: [
                                                           Text(
                                                             name[index],
@@ -212,8 +214,8 @@ class _HoemScreen_widgetState extends State<HoemScreen_widget> {
                                                                     .white,
                                                                 fontSize: 14,
                                                                 fontWeight:
-                                                                    FontWeight
-                                                                        .w700),
+                                                                FontWeight
+                                                                    .w700),
                                                           ),
                                                           Text(
                                                             time[index],
@@ -222,8 +224,8 @@ class _HoemScreen_widgetState extends State<HoemScreen_widget> {
                                                                     .white,
                                                                 fontSize: 12,
                                                                 fontWeight:
-                                                                    FontWeight
-                                                                        .w300),
+                                                                FontWeight
+                                                                    .w300),
                                                           ),
                                                         ],
                                                       ),
@@ -235,21 +237,21 @@ class _HoemScreen_widgetState extends State<HoemScreen_widget> {
                                                     child: OutlinedButton(
                                                       style: OutlinedButton
                                                           .styleFrom(
-                                                              side: BorderSide(
-                                                                  width: 2,
-                                                                  color: Colors
-                                                                      .white)),
+                                                          side: BorderSide(
+                                                              width: 2,
+                                                              color: Colors
+                                                                  .white)),
                                                       onPressed: () {},
                                                       child: Text(
                                                         'Add friend',
                                                         style:
-                                                            GoogleFonts.roboto(
-                                                                color: Colors
-                                                                    .white,
-                                                                fontSize: 10,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .w300),
+                                                        GoogleFonts.roboto(
+                                                            color: Colors
+                                                                .white,
+                                                            fontSize: 10,
+                                                            fontWeight:
+                                                            FontWeight
+                                                                .w300),
                                                       ),
                                                     ),
                                                   )
@@ -279,7 +281,7 @@ class _HoemScreen_widgetState extends State<HoemScreen_widget> {
                                 flex: 10,
                                 child: Row(
                                   mainAxisAlignment:
-                                      MainAxisAlignment.spaceEvenly,
+                                  MainAxisAlignment.spaceEvenly,
                                   children: [
                                     Text(
                                       'Comments',
@@ -310,7 +312,7 @@ class _HoemScreen_widgetState extends State<HoemScreen_widget> {
                                         children: [
                                           Row(
                                             mainAxisAlignment:
-                                                MainAxisAlignment.spaceBetween,
+                                            MainAxisAlignment.spaceBetween,
                                             children: [
                                               Row(
                                                 children: [
@@ -321,38 +323,38 @@ class _HoemScreen_widgetState extends State<HoemScreen_widget> {
                                                   ),
                                                   Column(
                                                     crossAxisAlignment:
-                                                        CrossAxisAlignment
-                                                            .start,
+                                                    CrossAxisAlignment
+                                                        .start,
                                                     children: [
                                                       Text(
                                                         'Jane Doe',
                                                         style:
-                                                            GoogleFonts.roboto(
-                                                                color: Colors
-                                                                    .white,
-                                                                fontSize: 12,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .w500),
+                                                        GoogleFonts.roboto(
+                                                            color: Colors
+                                                                .white,
+                                                            fontSize: 12,
+                                                            fontWeight:
+                                                            FontWeight
+                                                                .w500),
                                                       ),
                                                       Container(
                                                         width: MediaQuery.of(
-                                                                    context)
-                                                                .size
-                                                                .width *
+                                                            context)
+                                                            .size
+                                                            .width *
                                                             0.6,
                                                         child: Text(
                                                           overflow:
-                                                              TextOverflow.clip,
+                                                          TextOverflow.clip,
                                                           'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris dignissim risus et congu',
                                                           style: GoogleFonts
                                                               .roboto(
-                                                                  color: Colors
-                                                                      .white,
-                                                                  fontSize: 10,
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .w300),
+                                                              color: Colors
+                                                                  .white,
+                                                              fontSize: 10,
+                                                              fontWeight:
+                                                              FontWeight
+                                                                  .w300),
                                                         ),
                                                       ),
                                                     ],
@@ -379,24 +381,39 @@ class _HoemScreen_widgetState extends State<HoemScreen_widget> {
                                 ),
                               ),
                               Expanded(
-                                  flex: 10,
-                                  child: Container(
-                                    margin: EdgeInsets.only(left: 10,right: 10,bottom: 10),child: Row(
+                                flex: 10,
+                                child: Container(
+                                  child: Row(
                                     children: [
                                       Expanded(flex: 10,child: Image.asset('assets/profile.png'),),
                                       SizedBox(width: 10,),
-                                       const Expanded(flex: 90,child: TextField(
+                                      const Expanded(
+                                        flex: 90,
+                                        child: TextField(
                                           decoration: InputDecoration(
-                                            border: OutlineInputBorder(
-                                              borderSide: BorderSide(
-                                                color: Colors.white
-                                              )
-                                            ),
-                                              hintText: "comment here" ,
-                                            suffixText: 'Post',
-                                            suffixStyle: TextStyle(color: Colors.white)
+                                              border: OutlineInputBorder(
+                                                borderSide: BorderSide(
+                                                    color: Colors.white
+                                                ),
+                                              ),
+                                              enabledBorder: OutlineInputBorder(
+                                                borderSide: BorderSide(
+                                                    color: Colors.white
+                                                ),
+                                              ),
+                                              focusedBorder: OutlineInputBorder(
+                                                borderSide: BorderSide(
+                                                    color: Colors.white
+                                                ),
+                                              ),
+                                              isDense: true,
+                                              enabled: true,
+                                              hintText: "comment here",
+                                              hintStyle: TextStyle(color: Colors.white,),
+                                              suffixText: 'Post',
+                                              suffixStyle: TextStyle(color: Colors.white,)
                                           ),
-                                         style: TextStyle(color: Colors.white),
+                                          style: TextStyle(color: Colors.white),
                                         ),),
                                     ],
                                   ),),)
@@ -407,10 +424,17 @@ class _HoemScreen_widgetState extends State<HoemScreen_widget> {
                       child: Image.asset('assets/chat.png'),
                     ),
                     InkWell(
+                      onTap: () {
+                        Navigator.push(context, MaterialPageRoute(builder: (context) => TeamUp()));
+                      },
                       child: Image.asset('assets/follower.png'),
                     ),
                     InkWell(
-                      onTap: (){
+                      onTap: () async {
+                        print('hello');
+                        final box = context.findRenderObject() as RenderBox?;
+                        await Share.share('Hello this is a test',
+                          sharePositionOrigin: box!.localToGlobal(Offset.zero) & box.size,);
                       },
                       child: Image.asset('assets/share.png'),
                     ),
@@ -421,6 +445,6 @@ class _HoemScreen_widgetState extends State<HoemScreen_widget> {
           )
         ],
       ),
-    );
+    ),);
   }
 }
