@@ -20,21 +20,6 @@ class _Home_screenState extends State<Home_screen> {
     super.initState();
   }
 
-  Widget bodyFunction() {
-    switch (_page) {
-      case 0:
-        return const HomeScreen_widget();
-
-      case 1:
-        return const All_Chat();
-
-      case 2:
-        return const HomeScreen_widget();
-
-      default:
-        return const User_Profile();
-    }
-  }
 
   @override
   Widget build(BuildContext context) {
