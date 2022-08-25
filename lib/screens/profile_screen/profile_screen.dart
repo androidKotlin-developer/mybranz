@@ -4,7 +4,7 @@ import 'package:mybranz/screens/Interests/interests.dart';
 import 'package:mybranz/screens/profile_screen/edit_profile.dart';
 
 class ProfileScreen extends StatefulWidget {
-  const ProfileScreen({Key? key}) : super(key: key);
+  const  ProfileScreen({Key? key}) : super(key: key);
 
   @override
   State<ProfileScreen> createState() => _ProfileScreenState();

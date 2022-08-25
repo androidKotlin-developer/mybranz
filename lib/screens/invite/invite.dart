@@ -10,16 +10,16 @@ class InviteScreen extends StatefulWidget {
 
 class _InviteScreenState extends State<InviteScreen> {
   List<String> Uimg = [
-    'assets/images/user.png',
-    'assets/images/user.png',
-    'assets/images/user.png',
-    'assets/images/user.png',
-    'assets/images/user.png',
-    'assets/images/user.png',
-    'assets/images/user.png',
-    'assets/images/user.png',
-    'assets/images/user.png',
-    'assets/images/user.png',
+    'assets/images/userprofile.png',
+    'assets/images/userprofile.png',
+    'assets/images/userprofile.png',
+    'assets/images/userprofile.png',
+    'assets/images/userprofile.png',
+    'assets/images/userprofile.png',
+    'assets/images/userprofile.png',
+    'assets/images/userprofile.png',
+    'assets/images/userprofile.png',
+    'assets/images/userprofile.png',
   ];
   List<String> Uname = [
     'Jane Doe',

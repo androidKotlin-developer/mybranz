@@ -58,7 +58,7 @@ class _Home_screenState extends State<Home_screen> {
             label: '',
           ),
           BottomNavigationBarItem(
-            icon: _page == 3 ?Image.asset("assets/selecteduser.png",):Image.asset("assets/user.png",),
+            icon: _page == 3 ? Image.asset("assets/selecteduser.png",) : Image.asset("assets/user.png",),
             label: '',
           ),
         ],
