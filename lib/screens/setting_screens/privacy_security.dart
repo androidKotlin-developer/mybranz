@@ -152,7 +152,11 @@ class _Privacy_SecurityState extends State<Privacy_Security> {
                 Text('1 Month' , style: GoogleFonts.roboto(fontSize: 12 , fontWeight: FontWeight.w400 , color: Colors.white),),
               ],)
             ],),
-            Image.asset('assets/cancle.png' , height: 15,)
+            InkWell(
+              onTap: (){
+
+              },
+              child: Image.asset('assets/cancle.png' , height: 15,),)
 
         ],),
       );

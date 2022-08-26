@@ -20,7 +20,6 @@ class _Chat_PageState extends State<Chat_Page> {
         shadowColor: Colors.white,
         backgroundColor: Colors.black,
         title: Text(widget.profilename),
-        leading: Image.asset(widget.picture),
       ),
       body: Container(
         color: Colors.black,

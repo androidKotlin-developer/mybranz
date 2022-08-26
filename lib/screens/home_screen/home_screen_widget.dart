@@ -16,6 +16,7 @@ List<String> name = [
   'Manya Sharma',
   'Manya Sharma',
 ];
+
 List<String> time = [
   '2 min ago',
   '3 min ago',
@@ -169,9 +170,9 @@ class _HomeScreen_widgetState extends State<HomeScreen_widget> {
                               Expanded(
                                 flex: 10,
                                 child: Row(
-                                  mainAxisAlignment:
-                                  MainAxisAlignment.spaceEvenly,
+                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                   children: [
+                                    Container(),
                                     Text(
                                       'Likes',
                                       style: GoogleFonts.roboto(
@@ -179,7 +180,7 @@ class _HomeScreen_widgetState extends State<HomeScreen_widget> {
                                           fontSize: 15,
                                           color: Colors.white),
                                     ),
-                                    Icon(
+                                     Icon(
                                       Icons.cancel_outlined,
                                       color: Colors.white,
                                     ),
@@ -263,7 +264,7 @@ class _HomeScreen_widgetState extends State<HomeScreen_widget> {
                                                                 .w300),
                                                       ),
                                                     ),
-                                                  )
+                                                  ),
                                                 ],
                                               ),
                                               SizedBox(
@@ -289,9 +290,9 @@ class _HomeScreen_widgetState extends State<HomeScreen_widget> {
                               Expanded(
                                 flex: 10,
                                 child: Row(
-                                  mainAxisAlignment:
-                                  MainAxisAlignment.spaceEvenly,
+                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                   children: [
+                                    Container(),
                                     Text(
                                       'Comments',
                                       style: GoogleFonts.roboto(
@@ -299,10 +300,10 @@ class _HomeScreen_widgetState extends State<HomeScreen_widget> {
                                           fontSize: 15,
                                           color: Colors.white),
                                     ),
-                                    Icon(
+                                    Align(alignment:Alignment.centerRight,child: Icon(
                                       Icons.cancel_outlined,
                                       color: Colors.white,
-                                    ),
+                                    ),)
                                   ],
                                 ),
                               ),
@@ -434,7 +435,7 @@ class _HomeScreen_widgetState extends State<HomeScreen_widget> {
                     ),
                     InkWell(
                       onTap: () {
-                        Navigator.push(context, MaterialPageRoute(builder: (context) => TeamUp()));
+                        Navigator.push(context, MaterialPageRoute(builder : (context) => TeamUp()));
                       },
                       child: Image.asset('assets/follower.png'),
                     ),
