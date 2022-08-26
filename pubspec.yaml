@@ -40,6 +40,8 @@ dependencies:
   share_plus: any
   camera: ^0.9.4+3
   video_player: ^2.2.6
+  staggered_grid_view_flutter:
+  transparent_image:
 
 
 
@@ -69,6 +71,7 @@ flutter:
   assets:
     - assets/
     - assets/images/
+    - assets/photos/
 
 
   # An image asset can refer to one or more resolution-specific "variants", see
