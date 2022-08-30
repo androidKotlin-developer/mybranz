@@ -42,6 +42,7 @@ dependencies:
   video_player: ^2.2.6
   staggered_grid_view_flutter:
   transparent_image:
+  image_picker: ^0.8.5+3
 
 
 
@@ -72,6 +73,7 @@ flutter:
     - assets/
     - assets/images/
     - assets/photos/
+    - assets/imoji/
 
 
   # An image asset can refer to one or more resolution-specific "variants", see
