@@ -1,25 +1,20 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class Create_Post extends StatefulWidget {
-  final File image;
+   final image;
 
-  Create_Post({Key? key, required this.image}) : super(key: key);
+   Create_Post({Key? key, required this.image}) : super(key: key);
 
   @override
   State<Create_Post> createState() => _Create_PostState();
 }
 
 class _Create_PostState extends State<Create_Post> {
-  List<String> imoji = [
-    'assets/imoji/likeit.png',
-    'assets/imoji/loveit.png',
-    'assets/imoji/netural.png',
-    'assets/imoji/notgood.png',
-    'assets/imoji/verybad.png'
-  ];
   bool position = true;
 
   @override
@@ -69,12 +64,11 @@ class _Create_PostState extends State<Create_Post> {
                     margin: EdgeInsets.only(top: 20),
                     height: 500,
                     width: MediaQuery.of(context).size.width,
-                    decoration: BoxDecoration(
-                        image: DecorationImage(
-                            image: AssetImage(widget.image.path),
-                            fit: BoxFit.cover)),
                     child: Stack(
                       children: [
+                        Container(
+                          width: MediaQuery.of(context).size.width,
+                          child: Image.file(widget.image),),
                         Positioned(
                           left: 10,
                           top: MediaQuery.of(context).size.height / 3.5,
@@ -186,11 +180,11 @@ class _Create_PostState extends State<Create_Post> {
                 ],
               ),
             )
-          : Confirm_Screen(),
+          : _Confirm_Screen(),
     );
   }
 
-  Confirm_Screen() {
+  _Confirm_Screen() {
     return Container(
       width: MediaQuery.of(context).size.width,
       height: MediaQuery.of(context).size.height,
@@ -208,9 +202,11 @@ class _Create_PostState extends State<Create_Post> {
                   color: Colors.white),
             ),
           ),
-          SizedBox(
+
+          const SizedBox(
             height: 30,
           ),
+
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
@@ -261,7 +257,7 @@ class _Create_PostState extends State<Create_Post> {
               ),
               Column(
                 children: [
-                  Image.asset('assets/imoji/notgoog.png'),
+                  Image.asset('assets/imoji/notgood.png'),
                   SizedBox(
                     height: 10,
                   ),
@@ -291,6 +287,7 @@ class _Create_PostState extends State<Create_Post> {
               )
             ],
           ),
+
           Container(
             margin: EdgeInsets.only(top: 25, left: 20),
             child: Text(
@@ -301,6 +298,7 @@ class _Create_PostState extends State<Create_Post> {
                   color: Colors.white),
             ),
           ),
+
           Container(
             height: 36,
             margin: EdgeInsets.only(left: 20, right: 15, top: 25),
@@ -319,6 +317,7 @@ class _Create_PostState extends State<Create_Post> {
               ),
             ),
           ),
+
           Container(
             margin: EdgeInsets.only(left: 20, right: 15, top: 33),
             child: Row(
@@ -341,6 +340,7 @@ class _Create_PostState extends State<Create_Post> {
               ],
             ),
           ),
+
           Container(
             margin: EdgeInsets.only(left: 20 , right: 15 , top: 25),
             child: Row(

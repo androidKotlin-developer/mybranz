@@ -1,13 +1,16 @@
+import 'package:chart_sparkline/chart_sparkline.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mybranz/screens/home_screen/home_screen.dart';
 import 'package:mybranz/screens/user_profile/profile_setting.dart';
+import 'package:mybranz/screens/withdraw/withdraw.dart';
 import 'package:staggered_grid_view_flutter/widgets/staggered_grid_view.dart';
 import 'package:staggered_grid_view_flutter/widgets/staggered_tile.dart';
-import 'package:transparent_image/transparent_image.dart';
 
 class User_Profile extends StatefulWidget {
-  const User_Profile({Key? key}) : super(key: key);
+  const User_Profile({
+    Key? key,
+  }) : super(key: key);
 
   @override
   State<User_Profile> createState() => _User_ProfileState();
@@ -23,21 +26,22 @@ class _User_ProfileState extends State<User_Profile> {
     _controller = PageController(initialPage: _page);
     super.initState();
   }
-  List<String> imagelist =[
-    'assets/photos/1.png' ,
-    'assets/photos/2.png' ,
-    'assets/photos/3.png' ,
-    'assets/photos/4.png' ,
-    'assets/photos/6.png' ,
-    'assets/photos/7.png' ,
-    'assets/photos/8.png' ,
-    'assets/photos/1.png' ,
-    'assets/photos/2.png' ,
-    'assets/photos/3.png' ,
-    'assets/photos/4.png' ,
-    'assets/photos/6.png' ,
-    'assets/photos/7.png' ,
-    'assets/photos/8.png' ,
+
+  List<String> imagelist = [
+    'assets/photos/1.png',
+    'assets/photos/2.png',
+    'assets/photos/3.png',
+    'assets/photos/4.png',
+    'assets/photos/6.png',
+    'assets/photos/7.png',
+    'assets/photos/8.png',
+    'assets/photos/1.png',
+    'assets/photos/2.png',
+    'assets/photos/3.png',
+    'assets/photos/4.png',
+    'assets/photos/6.png',
+    'assets/photos/7.png',
+    'assets/photos/8.png',
   ];
 
   @override
@@ -46,10 +50,13 @@ class _User_ProfileState extends State<User_Profile> {
       appBar: AppBar(
         backgroundColor: Color(0xFF1A1919),
         elevation: 2,
-        leading: InkWell(onTap: () {
-          Navigator.push(
-              context, MaterialPageRoute(builder: (context) => Home_screen()));
-        }, child: Icon(Icons.arrow_back),),
+        leading: InkWell(
+          onTap: () {
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => Home_screen()));
+          },
+          child: Icon(Icons.arrow_back),
+        ),
         title: Text(
           '_Miyah',
           style: GoogleFonts.roboto(
@@ -80,24 +87,10 @@ class _User_ProfileState extends State<User_Profile> {
     );
   }
 
-  _Icons(){
-    return Row(
-      children: [
-
-      ],
-    );
-  }
-
   _Profile_Container() {
     return Container(
-      height: MediaQuery
-          .of(context)
-          .size
-          .height,
-      width: MediaQuery
-          .of(context)
-          .size
-          .width,
+      height: MediaQuery.of(context).size.height,
+      width: MediaQuery.of(context).size.width,
       decoration: BoxDecoration(
           image: DecorationImage(
               image: AssetImage('assets/images/probg.png'), fit: BoxFit.cover)),
@@ -247,7 +240,7 @@ class _User_ProfileState extends State<User_Profile> {
                   Text(
                     '|',
                     style:
-                    GoogleFonts.roboto(color: Colors.white, fontSize: 30),
+                        GoogleFonts.roboto(color: Colors.white, fontSize: 30),
                   ),
                   Column(
                     children: [
@@ -270,7 +263,7 @@ class _User_ProfileState extends State<User_Profile> {
                   Text(
                     '|',
                     style:
-                    GoogleFonts.roboto(color: Colors.white, fontSize: 30),
+                        GoogleFonts.roboto(color: Colors.white, fontSize: 30),
                   ),
                   Column(
                     children: [
@@ -321,24 +314,28 @@ class _User_ProfileState extends State<User_Profile> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Expanded(
-            flex: 10,
-            child: Padding(padding: EdgeInsets.only(left: 40 , right: 35),child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                _page == 0 ? _Photos_Tag() : Image.asset('assets/photos.png'),
-
-                _page == 1 ? _Pin_Tag() : Image.asset('assets/pin.png'),
-
-                _page == 2 ?  _Statstics_Tag() : Image.asset('assets/statstics.png'),
-              ],
-            ),)
-          ),
+              flex: 10,
+              child: Padding(
+                padding: EdgeInsets.only(left: 40, right: 35),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    _page == 0
+                        ? _Photos_Tag()
+                        : Image.asset('assets/photos.png'),
+                    _page == 1 ? _Pin_Tag() : Image.asset('assets/pin.png'),
+                    _page == 2
+                        ? _Statstics_Tag()
+                        : Image.asset('assets/statstics.png'),
+                  ],
+                ),
+              )),
           Expanded(
             flex: 90,
             child: GestureDetector(
               onHorizontalDragEnd: (dragDetails) {
                 if (dragDetails.primaryVelocity! < 0) {
-                  _page ++;
+                  _page++;
                   _controller.jumpToPage(_page);
                 }
               },
@@ -354,7 +351,8 @@ class _User_ProfileState extends State<User_Profile> {
                   _Pin_Container(),
                   _Statstics_Container()
                 ],
-              ),),
+              ),
+            ),
           ),
         ],
       ),
@@ -362,25 +360,33 @@ class _User_ProfileState extends State<User_Profile> {
   }
 
   _Photos_Tag() {
-    return Container(decoration: BoxDecoration(
-        shape: BoxShape.rectangle,
-        color: Color(0xFFF12D4D),
-        borderRadius: BorderRadius.circular(5)
-    ),
+    return Container(
+      decoration: BoxDecoration(
+          shape: BoxShape.rectangle,
+          color: Color(0xFFF12D4D),
+          borderRadius: BorderRadius.circular(5)),
       height: 35,
       width: 90,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-        Image.asset('assets/photos.png'),
-        SizedBox(width: 10,),
-        Text('Photos', style: GoogleFonts.roboto(
-            fontSize: 15, fontWeight: FontWeight.w500, color: Colors.white),)
-      ],),);
+          Image.asset('assets/photos.png'),
+          SizedBox(
+            width: 10,
+          ),
+          Text(
+            'Photos',
+            style: GoogleFonts.roboto(
+                fontSize: 15, fontWeight: FontWeight.w500, color: Colors.white),
+          )
+        ],
+      ),
+    );
   }
-  _Phots_Container(){
+
+  _Phots_Container() {
     return Container(
-      margin: EdgeInsets.only(left: 40 , right: 35),
+      margin: EdgeInsets.only(left: 40, right: 35),
       child: StaggeredGridView.countBuilder(
         crossAxisCount: 2,
         crossAxisSpacing: 10,
@@ -390,13 +396,13 @@ class _User_ProfileState extends State<User_Profile> {
           return Container(
             decoration: BoxDecoration(
                 color: Colors.transparent,
-                borderRadius: BorderRadius.all(
-                    Radius.circular(15))
-            ),
+                borderRadius: BorderRadius.all(Radius.circular(15))),
             child: ClipRRect(
-              borderRadius: BorderRadius.all(
-                  Radius.circular(15)),
-              child: Image.asset(imagelist[index],fit: BoxFit.fill,),
+              borderRadius: BorderRadius.all(Radius.circular(15)),
+              child: Image.asset(
+                imagelist[index],
+                fit: BoxFit.fill,
+              ),
             ),
           );
         },
@@ -412,25 +418,29 @@ class _User_ProfileState extends State<User_Profile> {
       decoration: BoxDecoration(
           shape: BoxShape.rectangle,
           color: Color(0xFFF12D4D),
-          borderRadius: BorderRadius.circular(5)
-
-      ),
+          borderRadius: BorderRadius.circular(5)),
       height: 35,
       width: 90,
-
-      child:  Row(
+      child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-        Image.asset('assets/pin.png' ),
-        SizedBox(width: 5,),
-        Text('Pin', style: GoogleFonts.roboto(fontSize: 15,
-            fontWeight: FontWeight.w500,
-            color: Colors.white),)
-      ],),);
+          Image.asset('assets/pin.png'),
+          SizedBox(
+            width: 5,
+          ),
+          Text(
+            'Pin',
+            style: GoogleFonts.roboto(
+                fontSize: 15, fontWeight: FontWeight.w500, color: Colors.white),
+          )
+        ],
+      ),
+    );
   }
-  _Pin_Container(){
+
+  _Pin_Container() {
     return Container(
-      margin: EdgeInsets.only(left: 40 , right: 35),
+      margin: EdgeInsets.only(left: 40, right: 35),
       child: StaggeredGridView.countBuilder(
         crossAxisCount: 2,
         crossAxisSpacing: 10,
@@ -440,13 +450,13 @@ class _User_ProfileState extends State<User_Profile> {
           return Container(
             decoration: BoxDecoration(
                 color: Colors.transparent,
-                borderRadius: BorderRadius.all(
-                    Radius.circular(15))
-            ),
+                borderRadius: BorderRadius.all(Radius.circular(15))),
             child: ClipRRect(
-              borderRadius: BorderRadius.all(
-                  Radius.circular(15)),
-              child: Image.asset(imagelist[index],fit: BoxFit.fill,),
+              borderRadius: BorderRadius.all(Radius.circular(15)),
+              child: Image.asset(
+                imagelist[index],
+                fit: BoxFit.fill,
+              ),
             ),
           );
         },
@@ -457,51 +467,222 @@ class _User_ProfileState extends State<User_Profile> {
     );
   }
 
-  _Statstics_Tag(){
+  _Statstics_Tag() {
     return Container(
       decoration: BoxDecoration(
           shape: BoxShape.rectangle,
           color: Color(0xFFF12D4D),
-          borderRadius: BorderRadius.circular(5)
-
-      ),
+          borderRadius: BorderRadius.circular(5)),
       height: 35,
       width: 90,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-      Image.asset('assets/statstics.png'),
-      SizedBox(width: 10,),
-      Text('Statstics', style: GoogleFonts.roboto(fontSize: 15,
-          fontWeight: FontWeight.w500,
-          color: Colors.white),)
-    ],),);
+          Image.asset('assets/statstics.png'),
+          SizedBox(
+            width: 10,
+          ),
+          Text(
+            'Statstics',
+            style: GoogleFonts.roboto(
+                fontSize: 15, fontWeight: FontWeight.w500, color: Colors.white),
+          )
+        ],
+      ),
+    );
   }
-  _Statstics_Container(){
+
+  _Statstics_Container() {
     return Container(
-      margin: EdgeInsets.only(left: 40 , right: 35),
-      child: StaggeredGridView.countBuilder(
-        crossAxisCount: 2,
-        crossAxisSpacing: 10,
-        mainAxisSpacing: 12,
-        itemCount: imagelist.length,
-        itemBuilder: (context, index) {
-          return Container(
+      margin: EdgeInsets.only(left: 40, right: 40),
+      width: MediaQuery.of(context).size.width,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            children: [
+              Expanded(
+                flex: 40,
+                child: Container(
+                  height: 115,
+                  width: 130,
+                  padding: EdgeInsets.only(left: 10, right: 10, top: 10),
+                  decoration: BoxDecoration(
+                      color: Color(0xFF1E1E1E),
+                      borderRadius: BorderRadius.circular(10)),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'Reaction',
+                        style: GoogleFonts.roboto(
+                            fontWeight: FontWeight.w400,
+                            fontSize: 14,
+                            color: Color(0xFF9A9A9A)),
+                      ),
+                      SizedBox(
+                        height: 10,
+                      ),
+                      Text(
+                        '44.1K',
+                        style: GoogleFonts.roboto(
+                            fontWeight: FontWeight.w400,
+                            fontSize: 36,
+                            color: Color(0xFFFFFFFF)),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              SizedBox(
+                width: 10,
+              ),
+              Expanded(
+                flex: 60,
+                child: Container(
+                  height: 115,
+                  padding: EdgeInsets.only(left: 10, right: 10, top: 10),
+                  decoration: BoxDecoration(
+                      color: Color(0xFF1E1E1E),
+                      borderRadius: BorderRadius.circular(10)),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'Reaction',
+                        style: GoogleFonts.roboto(
+                            fontWeight: FontWeight.w400,
+                            fontSize: 14,
+                            color: Color(0xFF9A9A9A)),
+                      ),
+                      SizedBox(
+                        height: 10,
+                      ),
+                      Text(
+                        '44.1K',
+                        style: GoogleFonts.roboto(
+                            fontWeight: FontWeight.w400,
+                            fontSize: 36,
+                            color: Color(0xFFFFFFFF)),
+                      ),
+                    ],
+                  ),
+                ),
+              )
+            ],
+          ),
+          Container(
             decoration: BoxDecoration(
-                color: Colors.transparent,
-                borderRadius: BorderRadius.all(
-                    Radius.circular(15))
+                color: Color(0xFF1E1E1E),
+                borderRadius: BorderRadius.circular(10)),
+            margin: EdgeInsets.only(top: 15),
+            padding: EdgeInsets.all(20),
+            height: 150,
+            width: MediaQuery.of(context).size.width,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  'Revenue per Post',
+                  style: GoogleFonts.roboto(
+                      fontWeight: FontWeight.w400,
+                      fontSize: 14,
+                      color: Color(0xFF9A9A9A)),
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+                Row(
+                  children: [
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'Total',
+                          style: GoogleFonts.roboto(
+                              fontSize: 14,
+                              fontWeight: FontWeight.w400,
+                              color: Color(0xFFF5F5F5)),
+                        ),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        Text(
+                          '1,758',
+                          style: GoogleFonts.roboto(
+                              fontSize: 24,
+                              fontWeight: FontWeight.w400,
+                              color: Color(0xFFF5F5F5)),
+                        ),
+                      ],
+                    ),
+                    Container(
+                      margin: EdgeInsets.only(left: 40),
+                      height: 72,
+                      width: 157,
+                      child: Sparkline(
+                        data: [-1.5, 1 - 0, 2 - 5, -1.5, 2, 5, -2.3],
+                        lineColor: Color(0xFFF12D4D),
+                      ),
+                    ),
+                  ],
+                ),
+              ],
             ),
-            child: ClipRRect(
-              borderRadius: BorderRadius.all(
-                  Radius.circular(15)),
-              child: Image.asset(imagelist[index],fit: BoxFit.fill,),
+          ),
+          Container(
+            margin: EdgeInsets.only(top: 15),
+            decoration: BoxDecoration(
+                color: Color(0xFF1E1E1E),
+                borderRadius: BorderRadius.circular(10)),
+            height: 150,
+            padding: EdgeInsets.all(20),
+            width: MediaQuery.of(context).size.width,
+            child: Column(
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      'Monthly Revenue',
+                      style: GoogleFonts.roboto(
+                          fontWeight: FontWeight.w400,
+                          fontSize: 14,
+                          color: Color(0xFF9A9A9A)),
+                    ),
+                    Text(
+                      '2022',
+                      style: GoogleFonts.roboto(
+                          fontWeight: FontWeight.w400,
+                          fontSize: 14,
+                          color: Color(0xFF9A9A9A)),
+                    ),
+                  ],
+                ),
+              ],
             ),
-          );
-        },
-        staggeredTileBuilder: (int index) {
-          return StaggeredTile.count(1, index.isEven ? 1.0 : 1.5);
-        },
+          ),
+          Container(
+              margin: EdgeInsets.only(top: 25),
+              height: 35,
+              width: MediaQuery.of(context).size.width,
+              child: ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    primary: Color(0xFFF12D4d),
+                  ),
+                  onPressed: () {
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => Withdraw()));
+                  },
+                  child: Text(
+                    'Withdraw',
+                    style: GoogleFonts.roboto(
+                        fontSize: 14,
+                        fontWeight: FontWeight.w600,
+                        color: Colors.white),
+                  ),
+              ),
+          ),
+        ],
       ),
     );
   }

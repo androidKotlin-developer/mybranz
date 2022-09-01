@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:mybranz/screens/setting_screens/my_account/blocked_acc/block_acc.dart';
+import 'package:mybranz/screens/setting_screens/my_account/mydata/my_data.dart';
+import 'package:mybranz/screens/setting_screens/my_account/p_information/personal_information.dart';
+
+import 'change_password/change_password.dart';
 
 List<String> Accounttitle = [
   'Personal Information',
@@ -13,31 +18,6 @@ List<String> Accountsubtitle = [
   'Change your password',
   'Get information about type of data stored in account',
   'See blocked contacts',
-];
-
-List<String> Uimg = [
-  'assets/profile1.png',
-  'assets/profile1.png',
-  'assets/profile1.png',
-  'assets/profile1.png',
-  'assets/profile1.png',
-  'assets/profile1.png',
-  'assets/profile1.png',
-  'assets/profile1.png',
-  'assets/profile1.png',
-  'assets/profile1.png',
-];
-List<String> Uname = [
-  'Jane Doe',
-  'Jane Doe',
-  'Jane Doe',
-  'Jane Doe',
-  'Jane Doe',
-  'Jane Doe',
-  'Jane Doe',
-  'Jane Doe',
-  'Jane Doe',
-  'Jane Doe',
 ];
 
 class My_Account extends StatefulWidget {
@@ -72,17 +52,25 @@ class _My_AccountState extends State<My_Account> {
                     setState(() {
                       _index = index;
                     });
-                    _index == 1
+                    _index == 0
                         ? Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => _Change_Password()))
-                        : _index == 3
+                                builder: (context) => P_Information()))
+                        : _index == 1
                             ? Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => _BLocked()))
-                            : Container();
+                                    builder: (context) => Change_Password()))
+                            : _index == 2
+                                ? Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => Mydata()))
+                                : Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => Blocked()));
                   },
                   child: Container(
                       margin: EdgeInsets.only(
@@ -115,197 +103,5 @@ class _My_AccountState extends State<My_Account> {
                 );
               })),
     );
-  }
-
-  _Change_Password() {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Color(0xFF1A1919),
-        title: Text(
-          'Change Password',
-          style: GoogleFonts.roboto(
-              fontSize: 14, fontWeight: FontWeight.w400, color: Colors.white),
-        ),
-        actions: [
-          Container(
-            transform: Matrix4.translationValues(-10, 19, 0),
-            child: Text(
-              'Save',
-              style: GoogleFonts.roboto(
-                  fontSize: 14,
-                  fontWeight: FontWeight.w400,
-                  color: Color(0xFFF12D4D)),
-            ),
-          ),
-        ],
-        centerTitle: true,
-      ),
-      body: Container(
-          color: Colors.black,
-          child: Container(
-            margin: EdgeInsets.only(left: 25, right: 25, top: 10, bottom: 10),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                SizedBox(
-                  height: 25,
-                ),
-                Text(
-                  'Password',
-                  style: GoogleFonts.roboto(
-                      fontSize: 14,
-                      fontWeight: FontWeight.w400,
-                      color: Color(0xFF6A6A6A)),
-                ),
-                SizedBox(
-                  height: 30,
-                ),
-                Text(
-                  'Current Password',
-                  style: GoogleFonts.roboto(
-                      fontSize: 12,
-                      fontWeight: FontWeight.w400,
-                      color: Color(0xFFFFFFFF)),
-                ),
-                TextFormField(
-                  decoration: const InputDecoration(
-                    focusedBorder: UnderlineInputBorder(
-                      borderSide: BorderSide(
-                        color: Color(0xFFF12D4D),
-                      ),
-                    ),
-                    enabledBorder: UnderlineInputBorder(
-                      borderSide: BorderSide(
-                        color: Color(0xFFF12D4D),
-                      ),
-                    ),
-                    focusColor: Color(0xFFF12D4D),
-                  ),
-                ),
-                SizedBox(
-                  height: 15,
-                ),
-                Text(
-                  'New Password',
-                  style: GoogleFonts.roboto(
-                      fontSize: 12,
-                      fontWeight: FontWeight.w400,
-                      color: Color(0xFFFFFFFF)),
-                ),
-                TextFormField(
-                  decoration: const InputDecoration(
-                    focusedBorder: UnderlineInputBorder(
-                      borderSide: BorderSide(
-                        color: Color(0xFFF12D4D),
-                      ),
-                    ),
-                    enabledBorder: UnderlineInputBorder(
-                      borderSide: BorderSide(
-                        color: Color(0xFFF12D4D),
-                      ),
-                    ),
-                    focusColor: Color(0xFFF12D4D),
-                  ),
-                ),
-                SizedBox(
-                  height: 15,
-                ),
-                Text(
-                  'Confirm Password',
-                  style: GoogleFonts.roboto(
-                      fontSize: 12,
-                      fontWeight: FontWeight.w400,
-                      color: Color(0xFFFFFFFF)),
-                ),
-                TextFormField(
-                  decoration: const InputDecoration(
-                    focusedBorder: UnderlineInputBorder(
-                      borderSide: BorderSide(
-                        color: Color(0xFFF12D4D),
-                      ),
-                    ),
-                    enabledBorder: UnderlineInputBorder(
-                      borderSide: BorderSide(
-                        color: Color(0xFFF12D4D),
-                      ),
-                    ),
-                    focusColor: Color(0xFFF12D4D),
-                  ),
-                ),
-              ],
-            ),
-          )),
-    );
-  }
-
-  _BLocked() {
-    return Scaffold(
-        appBar: AppBar(
-          backgroundColor: Color(0xFF1A1919),
-          title: Text(
-            'Blocked Account',
-            style: GoogleFonts.roboto(
-                fontSize: 14, fontWeight: FontWeight.w400, color: Colors.white),
-          ),
-          centerTitle: true,
-        ),
-        body: Container(
-          color: Colors.black,
-          child: ListView.builder(
-            itemCount: Uimg.length,
-            itemBuilder: (context, index) {
-              return Container(
-                width: MediaQuery.of(context).size.width,
-                margin: EdgeInsets.only(left: 25 ,right: 25 ,top: 10 , bottom: 10),
-                child: Column(
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Row(
-                        children: [
-                          Image.asset(Uimg[index]),
-                          SizedBox(width: 10,),
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                Uname[index],
-                                style: GoogleFonts.roboto(
-                                    fontWeight: FontWeight.w700,
-                                    fontSize: 14,
-                                    color: Colors.white),
-                              ),
-                              Container(
-                                width:
-                                    MediaQuery.of(context).size.width * 0.5,
-                                child: Text(
-                                  'It include all new account they may have created',
-                                  style: GoogleFonts.roboto(
-                                      fontWeight: FontWeight.w400,
-                                      fontSize: 12,
-                                      color: Colors.white),
-                                ),
-                              )
-                            ],
-                          ),
-                        ],
-                      ),
-                      Container(
-                        width: 76,
-                        child: OutlinedButton(
-                        onPressed: () {},
-                        child: Text('Unblock' , style: GoogleFonts.roboto(fontWeight: FontWeight.w400 , fontSize: 12 , color: Colors.white),),
-                        style: OutlinedButton.styleFrom(
-                          side: BorderSide(width: 1, color: Colors.white),
-                        ),
-                      ),)
-                    ],
-                  ),
-                ],
-              ),);
-            },
-          ),
-        ));
   }
 }

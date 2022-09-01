@@ -3,7 +3,9 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:mybranz/screens/addFriend/add_friend.dart';
 import 'package:mybranz/screens/createpost/create_post.dart';
+import 'package:mybranz/screens/profile_screen/profile_screen.dart';
 import 'package:mybranz/screens/searchbar/search_bar.dart';
 import 'package:mybranz/screens/teamUp/team_up.dart';
 import 'package:share_plus/share_plus.dart';
@@ -47,8 +49,8 @@ class HomeScreen_widget extends StatefulWidget {
 
 class _HomeScreen_widgetState extends State<HomeScreen_widget> {
   bool _isliked = false;
-  late File photo;
-  late File videoplay;
+  late File _photo;
+  late File _videoplay;
 
   @override
   Widget build(BuildContext context) {
@@ -147,8 +149,9 @@ class _HomeScreen_widgetState extends State<HomeScreen_widget> {
                                             onTap: () async {
                                               var image = await ImagePicker().pickImage(source: ImageSource.gallery);
                                               setState(() {
-                                                photo = File(image!.path);
-                                                Navigator.push(context, MaterialPageRoute(builder: (context) => Create_Post(image: photo)));
+                                                _photo = File(image!.path);
+
+                                                Navigator.push(context, MaterialPageRoute(builder: (context) => Create_Post(image: _photo)));
                                               });
                                             },
                                             child: CircleAvatar(
@@ -180,11 +183,12 @@ class _HomeScreen_widgetState extends State<HomeScreen_widget> {
                                         children: [
                                           GestureDetector(
                                             onTap: () async {
-                                              var image = await ImagePicker().pickImage(source: ImageSource.camera);
+                                              var image = await ImagePicker().pickImage(source: ImageSource.camera , imageQuality: 100);
                                               setState(() {
-                                                photo = File(image!.path);
+                                                _photo = File(image!.path);
+                                                print(_photo);
                                                 Navigator.push(context, MaterialPageRoute(
-                                                        builder: (_) => Create_Post(image: photo,)));
+                                                        builder: (_) => Create_Post(image: _photo,)));
                                               });
                                             },
                                             child: CircleAvatar(
@@ -218,8 +222,8 @@ class _HomeScreen_widgetState extends State<HomeScreen_widget> {
                                             onTap: () async {
                                               var video = await ImagePicker().pickVideo(source: ImageSource.gallery);
                                               setState(() {
-                                                videoplay = File(video!.path);
-                                                Navigator.push(context, MaterialPageRoute(builder: (context) => Create_Post(image: videoplay)));
+                                                _videoplay = File(video!.path);
+                                                Navigator.push(context, MaterialPageRoute(builder: (context) => Create_Post(image: _videoplay)));
                                               });
                                             },
                                             child: CircleAvatar(
@@ -301,7 +305,14 @@ class _HomeScreen_widgetState extends State<HomeScreen_widget> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Row(
+                  GestureDetector(
+                    onLongPress: (){
+
+                    },
+                    onTap: (){
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => Add_Friend()));
+                    },
+                    child: Row(
                     children: [
                       Image.asset('assets/profile.png'),
                       Container(
@@ -315,7 +326,7 @@ class _HomeScreen_widgetState extends State<HomeScreen_widget> {
                         ),
                       ),
                     ],
-                  ),
+                  ),),
                   SizedBox(
                     height: 10,
                   ),

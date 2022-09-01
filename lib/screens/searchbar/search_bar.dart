@@ -1,6 +1,3 @@
-import 'dart:io';
-
-import 'package:camera/camera.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -62,10 +59,14 @@ class _SearchBarState extends State<SearchBar> {
                   children: [
                     Expanded(
                       flex: 10,
-                      child: Icon(
+                      child: GestureDetector(
+                        onTap: (){
+                          Navigator.pop(context);
+                        },
+                        child: Icon(
                         Icons.arrow_back,
                         color: Colors.white,
-                      ),
+                      ),),
                     ),
                     SizedBox(
                       width: 30,
@@ -122,14 +123,15 @@ class _SearchBarState extends State<SearchBar> {
                               height: 10,
                             ),
                             SizedBox(
-                                width: 45,
-                                child: Text(
-                                  'Mansoor Siddiqui',
-                                  style: GoogleFonts.roboto(
-                                      fontSize: 10,
-                                      fontWeight: FontWeight.w400,
-                                      color: Colors.white),
-                                )),
+                              width: 45,
+                              child: Text(
+                                'Mansoor Siddiqui',
+                                style: GoogleFonts.roboto(
+                                    fontSize: 10,
+                                    fontWeight: FontWeight.w400,
+                                    color: Colors.white),
+                              ),
+                            ),
                           ],
                         ),
                       );

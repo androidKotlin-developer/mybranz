@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:mybranz/screens/home_screen/home_screen.dart';
+import 'package:mybranz/screens/user_profile/user_profile.dart';
 
 class InviteScreen extends StatefulWidget {
   const InviteScreen({Key? key}) : super(key: key);
@@ -72,7 +74,7 @@ class _InviteScreenState extends State<InviteScreen> {
                     return Column(
                       children: [
                         Container(
-                          child: Row(
+                          child: Row (
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Expanded(
@@ -145,7 +147,7 @@ class _InviteScreenState extends State<InviteScreen> {
                   Navigator.pushReplacement(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => InviteScreen(),
+                      builder: (context) => Home_screen(),
                     ),
                   );
                 },

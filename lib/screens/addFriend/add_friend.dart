@@ -112,7 +112,7 @@ class _Add_FriendState extends State<Add_Friend> {
                           height: 35,
                           child:Column(
                           children: [
-                            Align( alignment: Alignment.topLeft, child: Text('You Followed Hannah.' , style: GoogleFonts.roboto(color: Colors.white),),),
+                            Align( alignment: Alignment.topLeft, child: Text('You Added Hannah as a friend.' , style: GoogleFonts.roboto(color: Colors.white),),),
                             Align( alignment: Alignment.bottomRight, child: Text('Dismiss', style: GoogleFonts.roboto(color: Colors.white)),),
                           ],
                         ),
@@ -138,7 +138,7 @@ class _Add_FriendState extends State<Add_Friend> {
                             height: 35,
                             child:Column(
                               children: [
-                                Align( alignment: Alignment.topLeft, child: Text('You Added Hannah as a friend.' , style: GoogleFonts.roboto(color: Colors.white , fontSize: 14 , fontWeight: FontWeight.w400),),),
+                                Align( alignment: Alignment.topLeft, child: Text('You Followed Hannah.' , style: GoogleFonts.roboto(color: Colors.white , fontSize: 14 , fontWeight: FontWeight.w400),),),
                                 Align( alignment: Alignment.bottomRight, child: Text('Dismiss', style: GoogleFonts.roboto(color: Colors.white , fontSize: 12 , fontWeight: FontWeight.w600)),),
                               ],
                             ),
